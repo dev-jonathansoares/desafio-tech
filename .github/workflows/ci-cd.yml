@@ -22,7 +22,9 @@ jobs:
           cp -R wordpress_data/wp-content/themes/twentytwentyone_tmp wordpress_data/wp-content/themes/twentytwentyone
       - name: Commit and push backup changes
         run: |
-    
+        
+          git config --global user.email "jonathan.soares91@outlook.com"
+          git config --global user.name "jonss"
           git add wordpress_data/wp-content/themes/twentytwentyone_tmp
           git add wordpress_data/wp-content/themes/twentytwentyone_old
           git commit -m "Create backup of theme folder"
@@ -64,3 +66,5 @@ jobs:
           git config --global user.email "jonathan.soares91@outlook.com"
           git config --global user.name "jonss"
           git push --force --set-upstream origin $TARGET_BRANCH
+          
+          
