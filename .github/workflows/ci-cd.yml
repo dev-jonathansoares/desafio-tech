@@ -6,6 +6,30 @@ on:
     
 jobs:
 
+  backup_theme_folder:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Create backup folder
+        run: |
+          mkdir -p wordpress_data/wp-content/themes/twentyfifteen_tmp
+          mkdir -p wordpress_data/wp-content/themes/twentyfifteen_old
+          cp -R wordpress_data/wp-content/themes/twentytwentyone wordpress_data/wp-content/themes/twentyfifteen_tmp
+          rsync wordpress_data/wp-content/themes/twentytwentyone wordpress_data/wp-content/themes/twentyfifteen_old
+          cp -R wordpress_data/wp-content/themes/twentytwentyone_tmp wordpress_data/wp-content/themes/twentyfifteen
+      - name: Commit and push backup changes
+        run: |
+          git config --global user.email "jonathan.soares91@outlook.com"
+          git config --global user.name "jonss"
+          git add wordpress_data/wp-content/themes/twentyfifteen_tmp
+          git add wordpress_data/wp-content/themes/twentyfifteen_old
+          git commit -m "Create backup of theme folder"
+          git push origin main
+          
+          
   deploy_production:
     runs-on: ubuntu-latest
     
@@ -13,11 +37,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
         
-      - name: Deploy para produção
+      - name: Deploy to production
         env:
           TARGET_BRANCH: produção
         run: |
-          echo "Deploying to production branch"
+          echo "Deploying to homologation branch"
           git checkout -B $TARGET_BRANCH
           git merge origin/main
           git config --global user.email "jonathan.soares91@outlook.com"
@@ -31,7 +55,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
         
-      - name: Deploy para homologação
+      - name: Deploy to homologation
         env:
           TARGET_BRANCH: homologação
         run: |
