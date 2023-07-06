@@ -15,8 +15,8 @@ jobs:
 
       - name: Create backup folder
         run: 
-          mkdir -p wordpress_data/wp-content/themes/twentyfifteen_tmp 
-          mkdir -p wordpress_data/wp-content/themes/twentyfifteen_old          
+          mkdir -p wordpress_data/wp-content/themes/twentyfifteen_tmp
+          mkdir -p wordpress_data/wp-content/themes/twentyfifteen_old
           cp -R wordpress_data/wp-content/themes/twentyfifteen wordpress_data/wp-content/themes/twentyfifteen_tmp
           rsync wordpress_data/wp-content/themes/twentyfifteen wordpress_data/wp-content/themes/twentyfifteen_old
           cp -R wordpress_data/wp-content/themes/twentyfifteen_tmp wordpress_data/wp-content/themes/twentyfifteen
@@ -25,8 +25,8 @@ jobs:
         
           git config --global user.email "jonathan.soares91@outlook.com"
           git config --global user.name "jonss"
-          git add wordpress_data/wp-content/themes/twentyfifteen_tmp
-          git add wordpress_data/wp-content/themes/twentyfifteen_old
+          git add wordpress_data/wp-content/themes/twentytwentyfifteen_tmp
+          git add wordpress_data/wp-content/themes/twentytwentyfifteen_old
           git commit -m "Create backup of theme folder"
           git push origin main
           
