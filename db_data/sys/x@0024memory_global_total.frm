@@ -7,7 +7,11 @@ definer_user=mariadb.sys
 definer_host=localhost
 suid=0
 with_check_option=0
+<<<<<<< Updated upstream
 timestamp=0001688585539189419
+=======
+timestamp=0001688594675118388
+>>>>>>> Stashed changes
 create-version=2
 source=SELECT SUM(CURRENT_NUMBER_OF_BYTES_USED) total_allocated\n  FROM performance_schema.memory_summary_global_by_event_name;
 client_cs_name=utf8mb3

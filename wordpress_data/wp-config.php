@@ -75,6 +75,7 @@ define( 'DB_COLLATE', getenv_docker('WORDPRESS_DB_COLLATE', '') );
  *
  * @since 2.6.0
  */
+<<<<<<< Updated upstream
 define( 'AUTH_KEY',         getenv_docker('WORDPRESS_AUTH_KEY',         'bf6487aed3fca55fecf37964c7deb9832b61c107') );
 define( 'SECURE_AUTH_KEY',  getenv_docker('WORDPRESS_SECURE_AUTH_KEY',  'bcf4adaff56cb555d82a9597d646b40d61945c93') );
 define( 'LOGGED_IN_KEY',    getenv_docker('WORDPRESS_LOGGED_IN_KEY',    '764cf325b68a52219f2017140a7b62ea47db5c00') );
@@ -83,6 +84,16 @@ define( 'AUTH_SALT',        getenv_docker('WORDPRESS_AUTH_SALT',        'b72be85
 define( 'SECURE_AUTH_SALT', getenv_docker('WORDPRESS_SECURE_AUTH_SALT', '8c930e84e3cca551c09b21b6e4eaeb1b715503dd') );
 define( 'LOGGED_IN_SALT',   getenv_docker('WORDPRESS_LOGGED_IN_SALT',   '4cab3f2bb80c03259be169f0bcdc6e199afc24ec') );
 define( 'NONCE_SALT',       getenv_docker('WORDPRESS_NONCE_SALT',       '15c8acce325ca9a4259276bcd2b646e753d3c20e') );
+=======
+define( 'AUTH_KEY',         getenv_docker('WORDPRESS_AUTH_KEY',         '5621fefa6557cbba21bd64b7c730aee73906dcef') );
+define( 'SECURE_AUTH_KEY',  getenv_docker('WORDPRESS_SECURE_AUTH_KEY',  '39532fb63d8949fab6c72270616a33d5436a9631') );
+define( 'LOGGED_IN_KEY',    getenv_docker('WORDPRESS_LOGGED_IN_KEY',    '00b4775fc4decffcad6375c4d1f708ff3b0db6fe') );
+define( 'NONCE_KEY',        getenv_docker('WORDPRESS_NONCE_KEY',        '712ddf6f33248b4c92bd60b9c6a8ebe0ff36e96a') );
+define( 'AUTH_SALT',        getenv_docker('WORDPRESS_AUTH_SALT',        '22a7e273d3675100d4c79e762a3890acf881e79d') );
+define( 'SECURE_AUTH_SALT', getenv_docker('WORDPRESS_SECURE_AUTH_SALT', '752367795910fa36c5c6a007855167e1fd60caca') );
+define( 'LOGGED_IN_SALT',   getenv_docker('WORDPRESS_LOGGED_IN_SALT',   '6315d5af83a059bc457444b2e87ee779e594c878') );
+define( 'NONCE_SALT',       getenv_docker('WORDPRESS_NONCE_SALT',       '27af67facc59ac63b03cabbaa0a9945601c00019') );
+>>>>>>> Stashed changes
 // (See also https://wordpress.stackexchange.com/a/152905/199287)
 
 /**#@-*/

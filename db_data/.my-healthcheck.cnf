@@ -2,6 +2,10 @@
 port=3306
 socket=/run/mysqld/mysqld.sock
 user=healthcheck
+<<<<<<< Updated upstream
 password=%]hAs@&e;pkC0;e.TwkB?zN4NaZ^V-?$
+=======
+password=ZtULm^>Nj8T0`&BjIM<%mXh|]qej$ma7
+>>>>>>> Stashed changes
 protocol=tcp
 
