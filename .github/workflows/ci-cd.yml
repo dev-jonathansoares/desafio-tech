@@ -37,7 +37,7 @@ jobs:
         run: |
           echo "Deploying to homologation branch"
           git checkout -B $TARGET_BRANCH
-          git merge origin/main
+          git merge origin/homologação
           git config --global user.email "jonathan.soares91@outlook.com"
           git config --global user.name "jonss"
           git push --force --set-upstream origin $TARGET_BRANCH
