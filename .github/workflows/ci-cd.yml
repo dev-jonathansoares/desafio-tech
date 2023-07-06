@@ -20,6 +20,11 @@ jobs:
           cp -R wordpress_data/wp-content/themes/twentyfifteen wordpress_data/wp-content/themes/twentyfifteen_tmp
           rsync wordpress_data/wp-content/themes/twentyfifteen wordpress_data/wp-content/themes/twentyfifteen_old
           cp -R wordpress_data/wp-content/themes/twentyfifteen_tmp wordpress_data/wp-content/themes/twentyfifteen
+          
+      - name: List contents of the backup folder
+        run: |
+          ls -R wordpress_data/wp-content/themes/
+          
       - name: Commit and push backup changes
         run: |
           git config --global user.email "jonathan.soares91@outlook.com"
