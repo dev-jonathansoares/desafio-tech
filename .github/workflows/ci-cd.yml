@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+    
+jobs:
+
+  deploy_production:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
+      - name: Deploy para produção
+        env:
+          TARGET_BRANCH: produção
+        run: |
+          echo "Deploying to production branch"
+          git checkout -B $TARGET_BRANCH
+          git merge origin/main
+          git config --global user.email "jonathan.soares91@outlook.com"
+          git config --global user.name "jonss"
+          git push --force --set-upstream origin $TARGET_BRANCH
+
+  deploy_homologation:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
+      - name: Deploy para homologação
+        env:
+          TARGET_BRANCH: homologação
+        run: |
+          echo "Deploying to homologation branch"
+          git checkout -B $TARGET_BRANCH
+          git merge origin/main
+          git config --global user.email "jonathan.soares91@outlook.com"
+          git config --global user.name "jonss"
+          git push --force --set-upstream origin $TARGET_BRANCH
