@@ -9,6 +9,10 @@ services:
       - MYSQL_DATABASE=DbWordPress
       - MYSQL_USER=jonss
       - MYSQL_PASSWORD=mestre123
+<<<<<<< HEAD
+
+=======
+>>>>>>> aaeb4e5befc6c7ed513bd2dce4d1b23da7a11a54
   wordpress:
     depends_on:
       - db
