@@ -19,7 +19,8 @@ jobs:
           mkdir -p wordpress_data/wp-content/themes/twentyfifteen_tmp
           rsync -avz --delete wordpress_data/wp-content/themes/twentyfifteen/ wordpress_data/wp-content/themes/twentyfifteen_tmp/
           mkdir -p wordpress_data/wp-content/themes/twentyfifteen_old
-          rsync -avz --exclude='*' --include='*.php' --backup --suffix='.old' wordpress_data/wp-content/themes/twentyfifteen/ wordpress_data/wp-content/themes/twentyfifteen_old/
+          rsync -avz --exclude='*' --include='*.php' --backup --suffix='.old' --existing wordpress_data/wp-content/themes/twentyfifteen_tmp/ wordpress_data/wp-content/themes/twentyfifteen_old/
+
           
       - name: Commit and push backup changes
         run: |
