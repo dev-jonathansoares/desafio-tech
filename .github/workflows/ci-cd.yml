@@ -18,9 +18,10 @@ jobs:
         
           mkdir -p wordpress_data/wp-content/themes/twentyfifteen_tmp &&
           mkdir -p wordpress_data/wp-content/themes/twentyfifteen_old &&
-          cp -R wordpress_data/wp-content/themes/twentyfifteen wordpress_data/wp-content/themes/twentyfifteen_tmp &&
-          rsync wordpress_data/wp-content/themes/twentyfifteen wordpress_data/wp-content/themes/twentyfifteen_old &&
-          cp -R wordpress_data/wp-content/themes/twentyfifteen_tmp wordpress_data/wp-content/themes/twentyfifteen
+          rsync  wordpress_data/wp-content/themes/twentyfifteen wordpress_data/wp-content/themes/twentyfifteen_tmp &&
+          mv wordpress_data/wp-content/themes/twentyfifteen /   wordpress_data/wp-content/themes/twentyfifteen_old &&
+          mv wordpress_data/wp-content/themes/twentyfifteen_tmp wordpress_data/wp-content/themes/twentyfifteen
+
           
       - name: Commit and push backup changes
         run: |
