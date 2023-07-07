@@ -40,7 +40,7 @@ jobs:
         
       - name: Deploy to production
         env:
-          TARGET_BRANCH: produção
+          TARGET_BRANCH: prod
         run: |
           echo "Deploying to homologation branch"
           git checkout -B $TARGET_BRANCH
@@ -59,7 +59,7 @@ jobs:
         
       - name: Deploy to homologation
         env:
-          TARGET_BRANCH: homologação
+          TARGET_BRANCH: homolog
         run: |
           echo "Deploying to homologation branch"
           git checkout -B $TARGET_BRANCH
