@@ -23,11 +23,11 @@ jobs:
      
       - name: Commit and push backup changes
         run: |
-          git config --global user.email "jonathan.soares91@outlook.com" &&
-          git config --global user.name "jonss" &&
-          git add -A wordpress_data/wp-content/themes/twentyfifteen_tmp &&
-          git add -A wordpress_data/wp-content/themes/twentyfifteen_old &&
-          git commit -m "Create backup of theme folder" &&
+          git config --global user.email "jonathan.soares91@outlook.com" 
+          git config --global user.name "jonss" 
+          git add -A wordpress_data/wp-content/themes/twentyfifteen_tmp*
+          git add -A wordpress_data/wp-content/themes/twentyfifteen_old*
+          git commit -m "Create backup of theme folder" 
           git push origin main
           
           
