@@ -15,19 +15,18 @@ jobs:
 
       - name: Create backup folder
         run: |
-          mkdir -p wordpress_data/wp-content/themes/twentyfifteen_tmp 
-          mkdir -p wordpress_data/wp-content/themes/twentyfifteen_old 
-          cp -R wordpress_data/wp-content/themes/twentyfifteen wordpress_data/wp-content/themes/twentyfifteen_tmp 
-          rsync wordpress_data/wp-content/themes/twentyfifteen wordpress_data/wp-content/themes/twentyfifteen_old 
+          mkdir -p wordpress_data/wp-content/themes/twentyfifteen_tmp
+          mkdir -p wordpress_data/wp-content/themes/twentyfifteen_old
+          cp -R wordpress_data/wp-content/themes/twentyfifteen wordpress_data/wp-content/themes/twentyfifteen_tmp
+          rsync wordpress_data/wp-content/themes/twentyfifteen wordpress_data/wp-content/themes/ twentyfifteen_old
           cp -R wordpress_data/wp-content/themes/twentyfifteen_tmp wordpress_data/wp-content/themes/twentyfifteen
-     
       - name: Commit and push backup changes
         run: |
-          git config --global user.email "jonathan.soares91@outlook.com" 
-          git config --global user.name "jonss" 
-          git add -A wordpress_data/wp-content/themes/twentyfifteen_tmp*
-          git add -A wordpress_data/wp-content/themes/twentyfifteen_old*
-          git commit -m "Create backup of theme folder" 
+          git config --global user.email "jonathan.soares91@outlook.com"
+          git config --global user.name "jonss"
+          git add wordpress_data/wp-content/themes/twentyfifteen_tmp
+          git add wordpress_data/wp-content/themes/twentyfifteen_old
+          git commit -m "Create backup of theme folder"
           git push origin main
           
           
@@ -42,14 +41,12 @@ jobs:
         env:
           TARGET_BRANCH: prod
         run: |
-          echo "Deploying to homologation branch" &&
-          git checkout -B $TARGET_BRANCH && 
-          if git diff --name-only origin/main; then
-          git merge origin/main &&
-          git config --global user.email "jonathan.soares91@outlook.com" &&
-          git config --global user.name "jonss" &&
+          echo "Deploying to production branch"
+          git checkout -B $TARGET_BRANCH
+          git merge origin/main
+          git config --global user.email "jonathan.soares91@outlook.com"
+          git config --global user.name "jonss"
           git push --force --set-upstream origin $TARGET_BRANCH
-          fi
 
   deploy_homologation:
     runs-on: ubuntu-latest
@@ -62,12 +59,9 @@ jobs:
         env:
           TARGET_BRANCH: homolog
         run: |
-          echo "Deploying to homologation branch" &&
-          git checkout -B $TARGET_BRANCH &&
-          if git diff --name-only origin/main; then
-          git merge origin/main && 
-          git config --global user.email "jonathan.soares91@outlook.com" &&
-          git config --global user.name "jonss" &&
-          git push --force --set-upstream origin $TARGET_BRANCH
-          fi
-          
+          echo "Deploying to homologation branch"
+          git checkout -B $TARGET_BRANCH
+          git merge origin/main
+          git config --global user.email "jonathan.soares91@outlook.com"
+          git config --global user.name "jonss"
+          git push --force --set-upstream origin $TARGET_BRANCH 
