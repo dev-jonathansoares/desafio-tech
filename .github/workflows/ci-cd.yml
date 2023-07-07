@@ -16,15 +16,10 @@ jobs:
       - name: Create backup folder
         run: |
         
-          mkdir desafio-tech/var/www/html/wp-content/themes/twentyfifteen_tmp &&
-          mkdir desafio-tech/var/www/html/wp-content/themes/twentyfifteen_old &&
-          mkdir var/www/html/wp-content/themes/twentyfifteen
-          rsync wordpress_data/wp-content/themes/twentyfifteen desafio-tech/var/www/html/wp-content/themes/twentyfifteen_tmp
-          mv wordpress_data/wp-content/themes/twentyfifteen /var/www/html/wp-content/themes/twentyfifteen_old
-          mv /var/www/html/wp-content/themes/twentyfifteen_tmp /var/www/html/wp-content/themes/twentyfifteen
-
-
-
+          mkdir -p wordpress_data/wp-content/themes/twentyfifteen_tmp
+          rsync -avz --delete wordpress_data/wp-content/themes/twentyfifteen/ wordpress_data/wp-content/themes/twentyfifteen_tmp/
+          mkdir -p wordpress_data/wp-content/themes/twentyfifteen_old
+          rsync -avz --exclude='*' --include='*.php' --backup --suffix='.old' wordpress_data/wp-content/themes/twentyfifteen/ wordpress_data/wp-content/themes/twentyfifteen_old/
           
       - name: Commit and push backup changes
         run: |
