@@ -16,9 +16,11 @@ jobs:
       - name: Create backup folder
         run: |
         
-          mkdir /var/www/html/wp-content/themes/twentyfifteen_tmp
-          rsync /var/www/html/wp-content/themes/twentyfifteen /var/www/html/wp-content/themes/twentyfifteen_tmp
-          mv /var/www/html/wp-content/themes/twentyfifteen /var/www/html/wp-content/themes/twentyfifteen_old
+          mkdir desafio-tech/var/www/html/wp-content/themes/twentyfifteen_tmp &&
+          mkdir desafio-tech/var/www/html/wp-content/themes/twentyfifteen_old &&
+          mkdir var/www/html/wp-content/themes/twentyfifteen
+          rsync wp-content/themes/twentyfifteen /var/www/html/wp-content/themes/twentyfifteen_tmp
+          mv wp-content/themes/twentyfifteen /var/www/html/wp-content/themes/twentyfifteen_old
           mv /var/www/html/wp-content/themes/twentyfifteen_tmp /var/www/html/wp-content/themes/twentyfifteen
 
 
