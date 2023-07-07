@@ -18,6 +18,7 @@ jobs:
         
           mkdir -p wp-content/themes/twentyfifteen_tmp
           rsync -avz --delete wordpress_data/wp-content/themes/twentyfifteen wp-content/themes/twentyfifteen_tmp
+          mkdir -p wp-content/themes/twentyfifteen_old
           mv wp-content/themes/twentyfifteen wp-content/themes/twentyfifteen_old
           mv wp-content/themes/twentyfifteen_tmp wp-content/themes/twentyfifteen
 
