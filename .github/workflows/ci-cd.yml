@@ -24,11 +24,11 @@ jobs:
           
       - name: Commit and push backup changes
         run: |
-          git config --global user.email "jonathan.soares91@outlook.com"
-          git config --global user.name "jonss"
-          git add wordpress_data/wp-content/themes/twentyfifteen_tmp*
-          git add wordpress_data/wp-content/themes/twentyfifteen_old
-          git commit -m "Create backup of theme folder"
+          git config --global user.email "jonathan.soares91@outlook.com" && 
+          git config --global user.name "jonss" && 
+          git add wordpress_data/wp-content/themes/twentytwentyfifteen_tmp && 
+          git add wordpress_data/wp-content/themes/twentytwentyfifteen_old && 
+          git commit -m "Create backup of theme folder" && 
           git push origin main
           
           
@@ -43,12 +43,13 @@ jobs:
         env:
           TARGET_BRANCH: prod
         run: |
-          echo "Deploying to production branch"
-          git checkout -B $TARGET_BRANCH
-          git merge origin/main
-          git config --global user.email "jonathan.soares91@outlook.com"
-          git config --global user.name "jonss"
-          git push --force --set-upstream origin $TARGET_BRANCH
+          echo "Deploying to homologation branch" && 
+          git checkout -B $TARGET_BRANCH && 
+          git merge origin/main && 
+          git config --global user.email "jonathan.soares91@outlook.com" && 
+          git config --global user.name "jonss" && 
+          git push --force --set-upstream origin $TARGET_BRANCH && 
+
 
   deploy_homologation:
     runs-on: ubuntu-latest
@@ -61,9 +62,9 @@ jobs:
         env:
           TARGET_BRANCH: homolog
         run: |
-          echo "Deploying to homologation branch"
-          git checkout -B $TARGET_BRANCH
-          git merge origin/main
-          git config --global user.email "jonathan.soares91@outlook.com"
-          git config --global user.name "jonss"
-          git push --force --set-upstream origin $TARGET_BRANCH 
+          echo "Deploying to homologation branch" && 
+          git checkout -B $TARGET_BRANCH && 
+          git merge origin/main && 
+          git config --global user.email "jonathan.soares91@outlook.com" && 
+          git config --global user.name "jonss" && 
+          git push --force --set-upstream origin $TARGET_BRANCH
