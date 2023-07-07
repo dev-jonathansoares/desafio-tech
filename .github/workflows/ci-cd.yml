@@ -44,6 +44,7 @@ jobs:
         run: |
           echo "Deploying to homologation branch" &&
           git checkout -B $TARGET_BRANCH && 
+          if git diff --name-only origin/main; then
           git merge origin/main &&
           git config --global user.email "jonathan.soares91@outlook.com" &&
           git config --global user.name "jonss" &&
@@ -63,6 +64,7 @@ jobs:
         run: |
           echo "Deploying to homologation branch" &&
           git checkout -B $TARGET_BRANCH &&
+          if git diff --name-only origin/main; then
           git merge origin/main &&
           git config --global user.email "jonathan.soares91@outlook.com" &&
           git config --global user.name "jonss" &&
