@@ -25,8 +25,8 @@ jobs:
         run: |
           git config --global user.email "jonathan.soares91@outlook.com"
           git config --global user.name "jonss"
-          git add wordpress_data/wp-content/themes/twentytwentyfifteen_tmp
-          git add wordpress_data/wp-content/themes/twentytwentyfifteen_old
+          git add wordpress_data/wp-content/themes/twentyfifteen_tmp
+          git add wordpress_data/wp-content/themes/twentyfifteen_old
           git commit -m "Create backup of theme folder"
           git push origin main
           
