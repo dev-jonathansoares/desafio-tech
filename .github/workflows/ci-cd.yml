@@ -19,8 +19,8 @@ jobs:
           mkdir desafio-tech/var/www/html/wp-content/themes/twentyfifteen_tmp &&
           mkdir desafio-tech/var/www/html/wp-content/themes/twentyfifteen_old &&
           mkdir var/www/html/wp-content/themes/twentyfifteen
-          rsync wp-content/themes/twentyfifteen /var/www/html/wp-content/themes/twentyfifteen_tmp
-          mv wp-content/themes/twentyfifteen /var/www/html/wp-content/themes/twentyfifteen_old
+          rsync wordpress_data/wp-content/themes/twentyfifteen desafio-tech/var/www/html/wp-content/themes/twentyfifteen_tmp
+          mv wordpress_data/wp-content/themes/twentyfifteen /var/www/html/wp-content/themes/twentyfifteen_old
           mv /var/www/html/wp-content/themes/twentyfifteen_tmp /var/www/html/wp-content/themes/twentyfifteen
 
 
