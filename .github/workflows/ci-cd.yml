@@ -66,6 +66,6 @@ jobs:
           git merge origin/main && \
           git config --global user.email "jonathan.soares91@outlook.com" && \
           git config --global user.name "jonss" && \
-          git push --force --set-upstream origin $TARGET_BRANCH
+          git push --force --set-upstream origin $TARGET_BRANCH && \
           
           
