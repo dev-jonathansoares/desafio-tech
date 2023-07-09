@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-
+ 
       - name: Create backup folder
         run: |
           mkdir -p wordpress_data/wp-content/themes/twentyfifteen_tmp_1
